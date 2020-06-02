@@ -41,6 +41,11 @@ private ArrayList<Stall> stalls;
     }
 
     public void visit(Attraction attraction, Visitor visitor) {
-
+        for (Attraction anAttraction : this.attractions){
+            if (anAttraction == attraction){
+                attraction.addVisit();
+                visitor.addAttraction(attraction);
+            }
+        }
     }
 }
