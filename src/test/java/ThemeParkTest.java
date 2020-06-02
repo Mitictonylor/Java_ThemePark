@@ -2,7 +2,6 @@
 import attractions.Dodgems;
 import attractions.Playground;
 import attractions.RollerCoaster;
-import attractions.RollercoasterTest;
 import org.junit.Before;
 import org.junit.Test;
 import stalls.CandyflossStall;
@@ -24,7 +23,7 @@ public class ThemeParkTest {
     @Before
     public void setUp() {
     dodgems = new Dodgems("dodgem", 8);
-    playground = new Playground("playg", 5);
+    playground = new Playground("play", 5);
     rollerCoaster = new RollerCoaster("roller", 9);
     candyflossStall = new CandyflossStall("candy", "floss", ParkingSpot.A1,6);
     tobaccoStall = new TobaccoStall("T","smokey", ParkingSpot.B1, 8);
@@ -46,4 +45,8 @@ public class ThemeParkTest {
         assertEquals(2, themePark.countStalls());
     }
 
+    @Test
+    public void canGetAllReviewed() {
+        assertEquals(5, themePark.getAllReviewed().size());
+    }
 }

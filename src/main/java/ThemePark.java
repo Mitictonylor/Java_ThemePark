@@ -27,4 +27,14 @@ private ArrayList<Stall> stalls;
     public int countStalls() {
         return this.stalls.size();
     }
+    public ArrayList<IReviewed> getAllReviewed(){
+        ArrayList<IReviewed> reviewed = new ArrayList<IReviewed>();
+        for(Stall stall :this.stalls){
+            reviewed.add(stall);
+        }
+        for(Attraction attraction :this.attractions){
+            reviewed.add(attraction);
+        }
+        return reviewed;
+    }
 }
