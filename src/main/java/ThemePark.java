@@ -1,5 +1,7 @@
 import attractions.Attraction;
+import attractions.RollerCoaster;
 import behaviours.IReviewed;
+import people.Visitor;
 import stalls.Stall;
 
 import java.util.ArrayList;
@@ -36,5 +38,9 @@ private ArrayList<Stall> stalls;
             reviewed.add(attraction);
         }
         return reviewed;
+    }
+
+    public void visit(Attraction attraction, Visitor visitor) {
+
     }
 }
