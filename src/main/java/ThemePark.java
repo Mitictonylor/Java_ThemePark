@@ -1,23 +1,30 @@
 import attractions.Attraction;
+import behaviours.IReviewed;
 import stalls.Stall;
+
+import java.util.ArrayList;
 
 public class ThemePark {
 
-    Attraction attractions;
-    Stall stalls;
+private ArrayList<Attraction> attractions;
+private ArrayList<Stall> stalls;
 
-    public ThemePark(Attraction attractions, Stall stalls) {
-        this.attractions = attractions;
-        this.stalls = stalls;
+    public ThemePark() {
+      this.attractions = new ArrayList<Attraction>();
+      this.stalls = new ArrayList<Stall>();
     }
 
-    public Attraction getAttractions() {
-        return attractions;
+    public void addAttractions(Attraction attraction){
+        this.attractions.add(attraction);
+    }
+    public void addStalls(Stall stall){
+        this.stalls.add(stall);
     }
 
-    public Stall getStalls() {
-        return stalls;
+    public int countAttractions() {
+        return this.attractions.size();
     }
-
-
+    public int countStalls() {
+        return this.stalls.size();
+    }
 }
