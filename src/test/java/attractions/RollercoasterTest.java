@@ -13,6 +13,7 @@ public class RollercoasterTest {
     Visitor visitor14140;
     Visitor visitor10180;
     Visitor visitor10140;
+    Visitor visitor18205;
 
 
     @Before
@@ -22,6 +23,7 @@ public class RollercoasterTest {
         visitor10180= new Visitor(10,1.80,10.00);
         visitor14140= new Visitor(14,1.40,10.00);
         visitor14180= new Visitor(14,1.80,10.00);
+        visitor18205= new Visitor(18,2.05,30.00);
 
     }
 
@@ -60,5 +62,13 @@ public class RollercoasterTest {
     @Test
     public void getTicketPrice() {
         assertEquals(8.40, rollerCoaster.defaultPrice(),0.01);
+    }
+    @Test
+    public void getTicketPrice__doubleForTallerThan200cm() {
+        assertEquals(16.80, rollerCoaster.priceFor(visitor18205),0.01);
+    }
+    @Test
+    public void getTicketPrice__normalForLessTallerThan200cm() {
+        assertEquals(8.40, rollerCoaster.priceFor(visitor14180),0.01);
     }
 }
