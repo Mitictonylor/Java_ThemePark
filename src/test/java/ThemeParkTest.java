@@ -22,6 +22,7 @@ public class ThemeParkTest {
     TobaccoStall tobaccoStall;
     ThemePark themePark;
     Visitor visitor;
+    Visitor visitor2;
 
     @Before
     public void setUp() {
@@ -37,6 +38,7 @@ public class ThemeParkTest {
     themePark.addStalls(candyflossStall);
     themePark.addStalls(tobaccoStall);
     visitor = new Visitor(25,1.90,100.0);
+    visitor2 = new Visitor(10,1.40,100.0);
 
     }
 
@@ -69,4 +71,13 @@ public class ThemeParkTest {
         assertTrue(themePark.allReviews().containsKey("dodgem"));
         assertTrue(themePark.allReviews().containsKey("T"));
     }
+    @Test
+    public void canShowAllThePlacesAllowed__Over18AndOver145cm(){
+       assertEquals(4, themePark.getAllAllowedFor(visitor).size());
+    }
+    @Test
+    public void canShowAllThePlacesAllowed__10AndUnder145cm(){
+        assertEquals(3, themePark.getAllAllowedFor(visitor2).size());
+    }
+
 }
