@@ -1,8 +1,12 @@
 package attractions;
 
 import behaviours.IReviewed;
+import behaviours.ISecurity;
+import people.Visitor;
 
-public abstract class Attraction implements IReviewed {
+import java.util.ArrayList;
+
+public abstract class Attraction implements IReviewed, ISecurity {
     private String name;
     private int rating;
     private int visitCount;
@@ -28,4 +32,7 @@ public abstract class Attraction implements IReviewed {
         this.visitCount ++;
     }
 
+    public boolean isAllowedTo(Visitor visitor) {
+        return true;
+    }
 }

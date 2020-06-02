@@ -1,6 +1,7 @@
 import attractions.Attraction;
 import attractions.RollerCoaster;
 import behaviours.IReviewed;
+import behaviours.ISecurity;
 import people.Visitor;
 import stalls.Stall;
 
@@ -56,5 +57,19 @@ private ArrayList<Stall> stalls;
             reviews.put(review.getName(),review.getRating());
         }
         return reviews;
+    }
+    public ArrayList<IReviewed> getAllAllowedFor(Visitor visitor){
+        ArrayList<IReviewed> allowed = new ArrayList<IReviewed>();
+        for(Attraction attraction : this.attractions){
+            if (attraction.isAllowedTo(visitor)){
+                allowed.add(attraction);
+            }
+        }
+        for(Stall stall : this.stalls){
+            if (stall.isAllowedTo(visitor)){
+                allowed.add(stall);
+            }
+        }
+        return allowed;
     }
 }
