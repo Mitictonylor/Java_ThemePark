@@ -1,6 +1,7 @@
 package people;
 
 import attractions.Attraction;
+import attractions.RollerCoaster;
 
 import java.util.ArrayList;
 
@@ -35,5 +36,9 @@ public class Visitor {
     }
     public int countVisitedAttractions(){
         return this.visitedAttractions.size();
+    }
+
+    public void addAttraction(Attraction attraction) {
+        this.visitedAttractions.add(attraction);
     }
 }

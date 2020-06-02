@@ -40,5 +40,7 @@ public class VisitorTest {
     public void  canAddAttractions(){
         visitor.addAttraction(rollerCoaster);
         assertEquals(1, visitor.countVisitedAttractions());
+        visitor.addAttraction(dodgems);
+        assertEquals(2, visitor.countVisitedAttractions());
     }
 }
