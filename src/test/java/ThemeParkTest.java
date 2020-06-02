@@ -10,6 +10,7 @@ import stalls.ParkingSpot;
 import stalls.TobaccoStall;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 public class ThemeParkTest {
@@ -59,5 +60,13 @@ public class ThemeParkTest {
         themePark.visit(rollerCoaster,visitor);
         assertEquals(1,rollerCoaster.getVisitCount());
         assertEquals(1, visitor.countVisitedAttractions());
+    }
+    @Test
+    public void canCreateAnHashMapWithNameAndRatingOfIReviewed(){
+        assertTrue(themePark.allReviews().containsKey("roller"));
+        assertTrue(themePark.allReviews().containsKey("play"));
+        assertTrue(themePark.allReviews().containsKey("candy"));
+        assertTrue(themePark.allReviews().containsKey("dodgem"));
+        assertTrue(themePark.allReviews().containsKey("T"));
     }
 }
