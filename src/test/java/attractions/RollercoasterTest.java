@@ -59,6 +59,6 @@ public class RollercoasterTest {
 
     @Test
     public void getTicketPrice() {
-        assertEquals(8.40, rollerCoaster.defaultPrice());
+        assertEquals(8.40, rollerCoaster.defaultPrice(),0.01);
     }
 }
