@@ -6,7 +6,7 @@ import people.Visitor;
 
 import java.util.ArrayList;
 
-public abstract class Attraction implements IReviewed, ISecurity {
+public abstract class Attraction implements IReviewed {
     private String name;
     private int rating;
     private int visitCount;
@@ -32,7 +32,4 @@ public abstract class Attraction implements IReviewed, ISecurity {
         this.visitCount ++;
     }
 
-    public boolean isAllowedTo(Visitor visitor) {
-        return true;
-    }
 }

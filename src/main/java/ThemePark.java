@@ -1,5 +1,4 @@
 import attractions.Attraction;
-import attractions.RollerCoaster;
 import behaviours.IReviewed;
 import behaviours.ISecurity;
 import people.Visitor;
@@ -33,12 +32,8 @@ private ArrayList<Stall> stalls;
     }
     public ArrayList<IReviewed> getAllReviewed(){
         ArrayList<IReviewed> reviewed = new ArrayList<IReviewed>();
-        for(Stall stall :this.stalls){
-            reviewed.add(stall);
-        }
-        for(Attraction attraction :this.attractions){
-            reviewed.add(attraction);
-        }
+        reviewed.addAll(this.stalls);
+        reviewed.addAll(this.attractions);
         return reviewed;
     }
 
@@ -60,16 +55,16 @@ private ArrayList<Stall> stalls;
     }
     public ArrayList<IReviewed> getAllAllowedFor(Visitor visitor){
         ArrayList<IReviewed> allowed = new ArrayList<IReviewed>();
-        for(Attraction attraction : this.attractions){
-            if (attraction.isAllowedTo(visitor)){
-                allowed.add(attraction);
+        for(IReviewed reviewed: this.getAllReviewed()){
+            if (reviewed instanceof ISecurity){
+               if( ((ISecurity) reviewed).isAllowedTo(visitor)){
+                   allowed.add(reviewed);
+               }
+            }else{
+                allowed.add(reviewed);
             }
         }
-        for(Stall stall : this.stalls){
-            if (stall.isAllowedTo(visitor)){
-                allowed.add(stall);
-            }
-        }
+
         return allowed;
     }
 }
